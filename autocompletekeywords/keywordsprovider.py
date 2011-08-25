@@ -35,7 +35,11 @@ class AutocompleteKeywordsProvider(Component):
                               FROM ticket 
                               WHERE keywords LIKE %s'''
         args = ['%%%s%%' % query]
-        for ticket_keywords, in self.env.db_query(sql, args):
+
+        db = self.env.get_db_cnx()
+        cursor = db.cursor()
+        cursor.execute(sql, args)
+        for ticket_keywords, in cursor:
             tokens = re.split('[ ,]+', ticket_keywords)
             keywords_set.update([s for s in tokens if s.startswith(query)])
 
