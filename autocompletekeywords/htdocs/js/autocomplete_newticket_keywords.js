@@ -3,6 +3,7 @@ jQuery(document).ready(function($) {
         cacheLength: 3,
         minChars: 2,
         multiple: true,
+        multipleSeparator: " ",
         delay: 100
     } ); 
 });
