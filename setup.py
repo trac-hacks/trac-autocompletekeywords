@@ -13,10 +13,9 @@ setup(
 Provides a dynamic suggest box for the keywords when editing tickets.
 ''',
     license = 'BSD',
-#    packages = find_packages(exclude=['*.tests*']),
     packages = find_packages(),
     package_data = {
-        'autocompletekeywords': ['*.txt', 'htdocs/*.css', 'htdocs/*.js']
+        'autocompletekeywords': ['*.txt', 'htdocs/css/*.css', 'htdocs/js/*.js']
     },
 
     entry_points = {
