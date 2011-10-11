@@ -46,7 +46,7 @@ class AutocompleteKeywordsExtendPage(Component):
                 add_script_data(req, {'KEYWORDS_AC_PATH': 'ac-keywords'})
             else:
                 add_script_data(req, {'KEYWORDS_AC_PATH': '../ac-keywords'})
-        add_script(req, '%s/js/autocomplete_ticket_keywords.js' % self.prefix)
+            add_script(req, '%s/js/autocomplete_ticket_keywords.js' % self.prefix)
         return (template, data, content_type)
 
     def pre_process_request(self, req, handler):
