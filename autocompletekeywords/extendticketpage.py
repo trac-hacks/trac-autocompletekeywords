@@ -3,7 +3,7 @@ from pkg_resources import resource_filename
 from trac.core import *
 
 from trac.web.api import IRequestFilter
-from trac.web.chrome import add_script
+from trac.web.chrome import add_script, add_script_data
 from trac.web.chrome import add_stylesheet
 from trac.web.chrome import ITemplateProvider 
 
@@ -43,9 +43,10 @@ class AutocompleteKeywordsExtendPage(Component):
             add_stylesheet(req, '%s/css/autocomplete.css' % self.prefix)
             add_script(req, '%s/js/autocomplete.js' % self.prefix)
             if req.path_info.rstrip() == '/newticket':
-                add_script(req, '%s/js/autocomplete_newticket_keywords.js' % self.prefix)
+                add_script_data(req, {'KEYWORDS_AC_PATH': 'ac-keywords'})
             else:
-                add_script(req, '%s/js/autocomplete_ticket_keywords.js' % self.prefix)
+                add_script_data(req, {'KEYWORDS_AC_PATH': '../ac-keywords'})
+        add_script(req, '%s/js/autocomplete_ticket_keywords.js' % self.prefix)
         return (template, data, content_type)
 
     def pre_process_request(self, req, handler):

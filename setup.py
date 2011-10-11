@@ -5,7 +5,7 @@ from setuptools import setup,find_packages
 
 setup(
     name = 'autocompletekeywords',
-    version = 1.0,
+    version = 1.1,
     author = 'Grzegorz Sobanski',
     author_email = 'silk@boktor.net',
     description = 'Dynamic list of suggestions in keywrods field.',
